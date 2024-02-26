@@ -126,42 +126,52 @@ Tables:
 
 **Procedure: afisare_info_furnizor**
 
-Purpose: This procedure retrieves information about a specific supplier and the products they supply.
-Functionality: It takes a supplier ID as input and fetches details such as product name, price, quantity, and supplier name. It then displays this information along with available prices and quantities for the products supplied by the specified supplier.
+• Purpose: This procedure retrieves information about a specific supplier and the products they supply.
+
+• Functionality: It takes a supplier ID as input and fetches details such as product name, price, quantity, and supplier name. It then displays this information along with available prices and quantities for the products supplied by the specified supplier.
 
 **Procedure: client_comenzi**
 
-Purpose: This procedure generates a report of all orders placed by a specific client.
-Functionality: It retrieves the name of the client and then fetches details of all orders associated with that client, including order IDs and order statuses. It then prints out the order details for each order.
+• Purpose: This procedure generates a report of all orders placed by a specific client.
+
+• Functionality: It retrieves the name of the client and then fetches details of all orders associated with that client, including order IDs and order statuses. It then prints out the order details for each order.
 
 **Function: detalii_comanda_produse**
 
-Purpose: This function provides details of products included in a specific order.
-Functionality: It takes an order ID as input and fetches details such as product ID, category, price, and quantity for each product included in the order. It also checks if the payment method is valid and if the order status is finalized before providing the details.
+• Purpose: This function provides details of products included in a specific order.
+
+• Functionality: It takes an order ID as input and fetches details such as product ID, category, price, and quantity for each product included in the order. It also checks if the payment method is valid and if the order status is finalized before providing the details.
 
 **Procedure: AfisareComenziClient**
 
-Purpose: This procedure displays all orders placed by a specific client.
-Functionality: It takes the client's name as input and retrieves details of all orders associated with that client, including order ID, order date, payment method, order status, product details, and the name of the employee handling the order. It then prints out this information for each order.
+• Purpose: This procedure displays all orders placed by a specific client.
+
+• Functionality: It takes the client's name as input and retrieves details of all orders associated with that client, including order ID, order date, payment method, order status, product details, and the name of the employee handling the order. It then prints out this information for each order.
 
 ## TRIGGERS: ##
 
 **Trigger: t_strg_ion** 
 
-Event: This trigger fires before a deletion operation on the CLIENT table.
-Purpose: It prevents the deletion of clients with the first name 'Ion'.
-Functionality: The trigger checks if there are any clients with the first name 'Ion' in the CLIENT table before allowing the DELETE operation. If such clients are found, it raises an error to prevent the deletion.
+•Event: This trigger fires before a deletion operation on the CLIENT table.
+
+•Purpose: It prevents the deletion of clients with the first name 'Ion'.
+
+•Functionality: The trigger checks if there are any clients with the first name 'Ion' in the CLIENT table before allowing the DELETE operation. If such clients are found, it raises an error to prevent the deletion.
 
 **Trigger: pret_produs**
 
-Event: This trigger fires before an update operation on the PRODUS table, for each row being updated.
-Purpose: It ensures that the price of a product is not set below a certain threshold.
-Functionality: The trigger checks if the new price (:NEW.pret) of the product being updated is lower than a predefined threshold (PRAG_PRET). If the price is below the threshold, it raises an error to prevent the update operation.
+•Event: This trigger fires before an update operation on the PRODUS table, for each row being updated.
+
+•Purpose: It ensures that the price of a product is not set below a certain threshold.
+
+•Functionality: The trigger checks if the new price (:NEW.pret) of the product being updated is lower than a predefined threshold (PRAG_PRET). If the price is below the threshold, it raises an error to prevent the update operation.
 
 **Trigger: admin.ddl_trigger_procedura**
 
-Event: This trigger fires after a CREATE, ALTER, or DROP operation on any schema object.
-Purpose: It monitors the creation of procedures within the schema.
-Functionality: When a procedure is created in the schema, this trigger detects the event and outputs a message indicating the successful creation of the procedure.
+•Event: This trigger fires after a CREATE, ALTER, or DROP operation on any schema object.
+
+•Purpose: It monitors the creation of procedures within the schema.
+
+•Functionality: When a procedure is created in the schema, this trigger detects the event and outputs a message indicating the successful creation of the procedure.
 
 
